@@ -13,7 +13,7 @@ export const GET = auth(async function GET(req) {
             else if (status === 502) {
                 return NextResponse.json({ message: "Door Opening Failed" }, { status: 500 })
             }
-            return NextResponse.json({ message: "Access Denied" }, { status: 401 })
+            return Response.redirect('/denied')
         }
     }
     const url = new URL('/api/auth/signin', req.url);
