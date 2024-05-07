@@ -10,7 +10,7 @@ export default auth((req) => {
         return Response.redirect(url)
     }
     if (req.nextUrl.pathname.startsWith('/denied')) {
-        const allowedEmails = ['v101developer@gmail.com', 'gokulkannant99@gmail.com', 'nikolateslat800@gmail.com']
+        const allowedEmails = ['v101developer@gmail.com', 'gokulkannant99@gmail.com', 'nikolateslat800@gmail.com', 'vismayadinesh2@gmail.com']
         if (allowedEmails.includes(req?.auth?.user?.email!!)) {
             const url = req.url.replace(req.nextUrl.pathname, "/")
             return Response.redirect(url)

@@ -4,7 +4,7 @@ import { NextResponse } from "next/server"
 
 export const GET = auth(async function GET(req) {
     if (req.auth) {
-        const allowedEmails = ['v101developer@gmail.com', 'gokulkannant99@gmail.com', 'nikolateslat800@gmail.com']
+        const allowedEmails = ['v101developer@gmail.com', 'gokulkannant99@gmail.com', 'nikolateslat800@gmail.com', 'vismayadinesh2@gmail.com']
         if (allowedEmails.includes(req.auth.user?.email!!)) {
             const { status, statusText } = await axios.get('https://nfc.connectnear.me/L')
             if (status === 200) {
