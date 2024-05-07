@@ -6,13 +6,14 @@ export const GET = auth(async function GET(req) {
     if (req.auth) {
         const allowedEmails = ['v101developer@gmail.com', 'gokulkannant99@gmail.com', 'nikolateslat800@gmail.com', 'vismayadinesh2@gmail.com']
         if (allowedEmails.includes(req.auth.user?.email!!)) {
-            const { status, statusText } = await axios.get('https://nfc.connectnear.me/L')
+            const { status } = await axios.get('https://nfc.connectnear.me/L')
             if (status === 200) {
                 return NextResponse.json({ message: "Door Closed" }, { status: 200 })
             }
             else if (status === 502) {
                 return NextResponse.json({ message: "Door Closing Failed" }, { status: 500 })
             }
+        } else {
             const url = new URL('/denied', req.url);
             return Response.redirect(url)
         }
