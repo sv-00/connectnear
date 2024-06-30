@@ -2,15 +2,21 @@
 
 import { Button } from '@/components/ui/button'
 import axios from 'axios'
-import useSWRMutation from 'swr/mutation'
+import { toast } from "sonner"
 
 const OpenButton = () => {
-    const { trigger } = useSWRMutation('/api/closeDoor', openDoor)
-    async function openDoor(url: string) {
-        await axios.get(url)
+    async function openDoor() {
+        'use server'
+        const { status } = await axios.get('https://nfc.connectnear.me/L')
+        if (status === 200) {
+            toast.success('Door Closed')
+        }
+        else if (status === 502) {
+            toast.error('Door Closing Failed')
+        }
     }
 
-    return <Button onClick={() => trigger()}>Open</Button>
+    return <Button onClick={() => openDoor()}>Open</Button>
 
 }
 
