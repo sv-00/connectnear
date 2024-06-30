@@ -1,7 +1,8 @@
 import { auth } from "@/auth";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { redirect } from "next/navigation";
-import { Button } from "@/components/ui/button"
+import CloseButton from "./CloseButton";
+import OpenButton from "./OpenButton";
 
 export default async function Home() {
   const session = await auth()
@@ -20,8 +21,8 @@ export default async function Home() {
         <AvatarFallback>{session?.user?.name?.charAt(0)}</AvatarFallback>
       </Avatar>
       <div className="space-x-8">
-        <Button>Open</Button>
-        <Button>Close</Button>
+        <OpenButton />
+        <CloseButton />
       </div>
     </main>
   );
