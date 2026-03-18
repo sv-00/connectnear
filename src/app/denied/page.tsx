@@ -9,8 +9,8 @@ export default async function Denied() {
     return (
         <main className='flex flex-col justify-center items-center space-y-20 min-h-dvh px-6 py-24 sm:py-32 lg:px-8 dark:bg-gray-900'>
             <Avatar className="h-24 w-24 flex items-center justify-center">
-                    <AvatarImage src={image!!} />
-                    <AvatarFallback>{session?.user?.name?.charAt(0)}</AvatarFallback>
+                <AvatarImage src={image!!} />
+                <AvatarFallback>{session?.user?.name?.charAt(0)}</AvatarFallback>
             </Avatar>
             <div className='text-center'>
                 <p className="text-base font-semibold text-emerald-700 dark:text-emerald-500">
