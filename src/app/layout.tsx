@@ -7,8 +7,11 @@ import { cn } from "@/lib/utils";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Near Connect",
-  description: "Web Dashboard for NFC",
+  title: "ConnectNear",
+  description: "Premium IoT infrastructure for businesses",
+  icons: {
+    icon: "/favicon.ico?v=2",
+  },
 };
 
 export default function RootLayout({
